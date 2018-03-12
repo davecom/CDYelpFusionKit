@@ -27,7 +27,7 @@
 
 import ObjectMapper
 
-public class CDYelpOpen: Mappable {
+@objc @objcMembers public class CDYelpOpen: NSObject, Mappable {
     
     public var isOvernight: Bool?
     public var end: String?

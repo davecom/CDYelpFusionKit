@@ -27,7 +27,7 @@
 
 import ObjectMapper
 
-public class CDYelpHour: Mappable {
+@objc @objcMembers public class CDYelpHour: NSObject, Mappable {
 
     public var hoursType: String?
     public var open: [CDYelpOpen]?

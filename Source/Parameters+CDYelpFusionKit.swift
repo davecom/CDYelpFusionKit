@@ -100,7 +100,7 @@ extension Dictionary where Key: ExpressibleByStringLiteral, Value: Any {
             let parametersString = String(attributesString[..<attributesString.index(before: attributesString.endIndex)])
             params["attributes"] = parametersString
         }
-        
+        print(params)
         return params
     }
     

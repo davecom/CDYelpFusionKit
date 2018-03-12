@@ -27,11 +27,11 @@
 
 import ObjectMapper
 
-public class CDYelpReview: Mappable {
+@objc @objcMembers public class CDYelpReview: NSObject, Mappable {
 
     public var text: String?
     public var url: URL?
-    public var rating: Int?
+    public var rating: Int = 0
     public var timeCreated: String?
     public var user: CDYelpUser?
     

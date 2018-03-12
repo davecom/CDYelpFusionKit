@@ -27,7 +27,7 @@
 
 import ObjectMapper
 
-public class CDYelpUser: Mappable {
+@objc @objcMembers public class CDYelpUser: NSObject, Mappable {
 
     public var name: String?
     public var imageUrl: URL?

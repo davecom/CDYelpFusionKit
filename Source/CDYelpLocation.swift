@@ -27,7 +27,7 @@
 
 import ObjectMapper
 
-public class CDYelpLocation: Mappable {
+@objc @objcMembers public class CDYelpLocation: NSObject, Mappable {
 
     public var addressOne: String?
     public var addressTwo: String?

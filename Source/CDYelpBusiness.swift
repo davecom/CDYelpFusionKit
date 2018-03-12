@@ -27,7 +27,7 @@
 
 import ObjectMapper
 
-public class CDYelpBusiness: Mappable {
+@objc @objcMembers public class CDYelpBusiness: NSObject, Mappable {
     
     public var id: String?
     public var name: String?
@@ -39,13 +39,87 @@ public class CDYelpBusiness: Mappable {
     public var displayPhone: String?
     public var photos: [String]?
     public var hours: [CDYelpHour]?
-    public var rating: Double?
-    public var reviewCount: Int?
+    public var rating: Double = 0
+    public var reviewCount: Int = 0
     public var categories: [CDYelpCategory]?
-    public var distance: Double?
+    public var distance: Double = 0.0
     public var coordinates: CDYelpCoordinates?
     public var location: CDYelpLocation?
     public var transactions: [String]?
+    public var transactionsString: NSString {
+        if let strings = transactions {
+            let words: [String] = strings.map {
+                if $0 == "restaurant_reservation" {
+                    return "📆"
+                } else if $0 == "delivery" {
+                    return "📦"
+                } else if $0 == "pickup" {
+                    return "🥡"
+                }
+                return ""
+            }
+            let list = NSString(string: words.joined(separator: ""))
+            return list
+        }
+        return NSString()
+    }
+    public var categoriesString: NSString {
+        if let categories = categories {
+            let words: [String] = categories.flatMap{ return $0.title }
+            let list = NSString(string: words.joined(separator: ", "))
+            return list
+        }
+        return NSString()
+    }
+    public var hoursString: NSAttributedString? {
+        if let hours = hours {
+            var total: String = ""
+            let df: DateFormatter = DateFormatter()
+            for hour in hours {
+                if let specifics = hour.open {
+                    for specific in specifics {
+                        if let day = specific.day, let start = specific.start, let end = specific.end {
+                            switch day {
+                            case 0:
+                                total += "Mon "
+                            case 1:
+                                total += "Tue "
+                            case 2:
+                                total += "Wed "
+                            case 3:
+                                total += "Thu "
+                            case 4:
+                                total += "Fri "
+                            case 5:
+                                total += "Sat "
+                            case 6:
+                                total += "Sun "
+                            default:
+                                break
+                            }
+                            df.dateFormat = "HHmm"
+                            if let sdate = df.date(from: start), let edate = df.date(from: end) {
+                                df.dateFormat = "h:mma"
+                                let s = df.string(from: sdate)
+                                let e = df.string(from: edate)
+                                total += "\t\(s)-\(e)\n"
+                            }
+                        }
+                    }
+                }
+            }
+            return NSAttributedString(string: total,
+                                      attributes: [NSAttributedStringKey.font: NSFont.systemFont(ofSize: 10)])
+        }
+        return nil
+    }
+    
+    public var multiplePhotos: Bool {
+        if let photos = photos {
+            return photos.count > 1
+        }
+        return false
+    }
     
     public required init?(map: Map) {
     }

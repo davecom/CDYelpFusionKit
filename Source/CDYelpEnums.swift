@@ -26,21 +26,27 @@
 //
 //
 
+// swiftlint:disable file_length
+
 ///
 /// A list of the business attributes the Yelp Fusion API supports.
 ///
 public enum CDYelpAttributeFilter: String {
     case hotAndNew              = "hot_and_new"
     case requestAQuote          = "request_a_quote"
+    case reservation            = "reservation"
     case waitlistReservation    = "waitlist_reservation"
     case cashback               = "cashback"
     case deals                  = "deals"
     case genderNeutralRestrooms = "gender_neutral_restrooms"
+    case openToAll              = "open_to_all"
+    case wheelchairAccessible   = "wheelchair_accessible"
 }
 
 ///
 /// A list of the business categories the Yelp Fusion API supports.
 ///
+// swiftlint:disable type_body_length
 public enum CDYelpBusinessCategoryFilter: String {
     // Active Life
     case activeLife                 = "active"
@@ -168,7 +174,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case zoos                       = "zoos"
     case pettingZoos                = "pettingzoos"
     case zorbing                    = "zorbing"
-    
+
     // Arts & Entertainment
     case artsAndEntertainment       = "arts"
     case arcades                    = "arcades"
@@ -221,7 +227,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case tablaoFlamenco             = "tablaoflamenco"
     case ticketSales                = "ticketsales"
     case wineTastingRoom            = "winetastingroom"
-    
+
     // Automotive
     case automotive                         = "auto"
     case aircraftDealers                    = "aircraftdealers"
@@ -281,7 +287,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case vehicleWraps                       = "vehiclewraps"
     case wheelAndRimRepair                  = "wheelrimrepair"
     case windshieldInstallationAndRepair    = "windshieldinstallrepair"
-    
+
     // Beauty & Spas
     case beautyAndSpas              = "beautysvc"
     case acneTreatment              = "acnetreatment"
@@ -317,14 +323,14 @@ public enum CDYelpBusinessCategoryFilter: String {
     case tanningBeds                = "tanningbeds"
     case tattoo                     = "tattoo"
     case teethWhitening             = "teethwhitening"
-    
+
     // Bicycles
     case bicycles           = "bicycles"
     case bikeAssocations    = "bikeassociations"
     case bikeRepair         = "bikerepair"
     case bikeShop           = "bikeshop"
     case specialBikes       = "specialbikes"
-    
+
     // Education
     case education                      = "education"
     case adultEducation                 = "adultedu"
@@ -374,7 +380,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case testPreparation                = "testprep"
     case tutoringCenters                = "tutoring"
     case waldorfSchools                 = "waldorfschools"
-    
+
     // Event Planning & Services
     case eventPlanningAndServices   = "eventservices"
     case bartenders                 = "bartenders"
@@ -413,7 +419,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case videographers              = "videographers"
     case weddingChapels             = "weddingchappels"
     case weddingPlanning            = "wedding_planning"
-    
+
     // Financial Services
     case financialServices          = "financialservices"
     case banksAndCreditUnions       = "banks"
@@ -431,7 +437,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case mortgageLenders            = "mortgagelenders"
     case taxServices                = "taxservices"
     case titleLoans                 = "titleloans"
-    
+
     // Food
     case food                       = "food"
     case acaiBowls                  = "acaibowls"
@@ -517,7 +523,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case waterStores                = "waterstores"
     case wineries                   = "wineries"
     case zapiekanka                 = "zapiekanka"
-    
+
     // Health & Medical
     case healthAndMedical               = "health"
     case acupuncture                    = "acupuncture"
@@ -665,7 +671,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case tuiNa                          = "tuina"
     case urgentCare                     = "urgent_care"
     case weightLossCenters              = "weightlosscenters"
-    
+
     // Home Services
     case homeServices                       = "homeservices"
     case artificialTurf                     = "artificialturf"
@@ -749,7 +755,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case waterproofing                      = "waterproofing"
     case windowWashing                      = "windowwashing"
     case windowsInstallation                = "windowsinstallation"
-    
+
     // Hotels & Travel
     case hotelsAndTravel            = "hotelstravel"
     case airports                   = "airports"
@@ -812,14 +818,14 @@ public enum CDYelpBusinessCategoryFilter: String {
     case visitorCenters             = "visitorcenters"
     case vacationRentalAgents       = "vacationrentalagents"
     case vacationRentals            = "vacation_rentals"
-    
+
     // Local Flavor
     case localFlavor            = "localflavor"
     case parklets               = "parklets"
     case publicArt              = "publicart"
     case unofficialYelpEvents   = "unofficialyelpevents"
     case yelpEvents             = "yelpevents"
-    
+
     // Local Services
     case localServices                      = "localservices"
     case threeDimensionalPrinting           = "3dprinting"
@@ -910,13 +916,13 @@ public enum CDYelpBusinessCategoryFilter: String {
     case wellDrilling                       = "welldrilling"
     case wildlifeControl                    = "wildlifecontrol"
     case youthClub                          = "youth_club"
-    
+
     // Mass Media
     case massMedia          = "massmedia"
     case printMedia         = "printmedia"
     case radioStations      = "radiostations"
     case televisionStations = "televisionstations"
-    
+
     // Nightlife
     case nightlife              = "nightlife"
     case adultEntertainment     = "adultentertainment"
@@ -957,7 +963,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case musicVenues            = "musicvenues"
     case pianoBars              = "pianobars"
     case poolHalls              = "poolhalls"
-    
+
     // Pets
     case pets                   = "pets"
     case animalShelters         = "animalshelters"
@@ -984,7 +990,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case localFishStores        = "localfishstores"
     case reptileShops           = "reptileshops"
     case veterinarians          = "vet"
-    
+
     // Professional Services
     case professionalServices       = "professional"
     case accountants                = "accountants"
@@ -1053,7 +1059,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case webDesign                  = "web_design"
     case wholesalers                = "wholesalers"
     case restaurantSupplies         = "suppliesrestaurant"
-    
+
     // Public Services & Government
     case publicServicesAndGovernment        = "publicservicesgovt"
     case authorizedPostalRepresentative     = "authorized_postal_representative"
@@ -1071,7 +1077,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case registryOffice                     = "registry_office"
     case taxOffice                          = "taxoffice"
     case townHall                           = "townhall"
-    
+
     // Real Estate
     case realEstate             = "realestate"
     case apartments             = "apartments"
@@ -1094,7 +1100,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case realEstatePhotography  = "estatephotography"
     case sharedOfficeSpaces     = "sharedofficespaces"
     case universityHousing      = "university_housing"
-    
+
     // Religious Organizations
     case religiousOrganizations = "religiousorgs"
     case afroBrazilian          = "afrobrazilian"
@@ -1106,7 +1112,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case spiritism              = "spiritism"
     case synagogues             = "synagogues"
     case taoistTemples          = "taoisttemples"
-    
+
     // Restaurants
     case restaurants                = "restaurants"
     case afghan                     = "afghani"
@@ -1417,7 +1423,7 @@ public enum CDYelpBusinessCategoryFilter: String {
     case wok                        = "wok"
     case wraps                      = "wraps"
     case yugoslav                   = "yugoslav"
-    
+
     // Shopping
     case shopping                           = "shopping"
     case adult                              = "adult"
@@ -1569,13 +1575,14 @@ public enum CDYelpBusinessCategoryFilter: String {
     case wholesaleStores                    = "wholesale_stores"
     case wigs                               = "wigs"
 }
+// swiftlint:enable identifier_name
 
 ///
 /// A list of business match types the Yelp Fusion API supports.
 ///
 public enum CDYelpBusinessMatchType: String {
-    case best   = "best"
-    case lookup = "lookup"
+    case best
+    case lookup
 }
 
 ///
@@ -1627,6 +1634,7 @@ public enum CDYelpEventSortOnType: String {
 /// A list of locales the Yelp Fusion API supports. The locale code is in the format of {language code}_{country code}.
 ///
 public enum CDYelpLocale: String {
+    // swiftlint:disable identifier_name
     case chinese_hongKong           = "zh_HK"
     case chinese_taiwan             = "zh_TW"
     case czech_czechRepublic        = "cs_CZ"
@@ -1669,6 +1677,7 @@ public enum CDYelpLocale: String {
     case swedish_finland            = "sv_FI"
     case swedish_sweden             = "sv_SE"
     case turkish_turkey             = "tr_TR"
+    // swiftlint:enable identifier_name
 }
 
 ///
@@ -1711,5 +1720,9 @@ public enum CDYelpStarsSize: String {
 /// A list of the transaction types the Yelp Fusion API supports. Currently, only food delivery is supported and it is only supported in the U.S.
 ///
 public enum CDYelpTransactionType: String {
-    case foodDelivery   = "delivery"
+    case foodDelivery           = "delivery"
+    case pickup                 = "pickup"
+    case restaurantReservation  = "restaurant_reservation"
 }
+
+// swiftlint:enable file_length

@@ -94,8 +94,8 @@ For a demonstration of the capabilities of CDYelpFusionKit; run the iOS Example 
 ## Requirements
 
 - iOS 8.0+ / macOS 10.10+ / tvOS 9.0+ / watchOS 2.0+
-- Xcode 8.1+
-- Swift 3.0+
+- Xcode 8.3+
+- Swift 3.1+
 - [Yelp API Access](https://www.yelp.com/developers/v3/manage_app)
 
 ---
@@ -121,7 +121,7 @@ gem install cocoapods
 To integrate CDYelpFusionKit into your Xcode project using CocoaPods, simply add the following line to your Podfile:
 
 ```ruby
-pod 'CDYelpFusionKit', '1.5.0'
+pod 'CDYelpFusionKit', '1.5.1'
 ```
 
 Afterwards, run the following command:
@@ -144,7 +144,7 @@ brew install carthage
 To integrate CDYelpFusionKit into your Xcode project using Carthage, simply add the following line to your Cartfile:
 
 ```ruby
-github "chrisdhaan/CDYelpFusionKit" == 1.5.0
+github "chrisdhaan/CDYelpFusionKit" == 1.5.1
 ```
 
 Afterwards, run the following command:
@@ -165,9 +165,19 @@ The Swift Package Manager is integrated into the Swift compiler.
 
 To integrate CDYelpFusionKit into your Xcode project using The Swift Package Manager, simply add the following line to your Package.swift file:
 
+#### Swift 3
+
 ```swift
 dependencies: [
-    .Package(url: "https://github.com/chrisdhaan/CDYelpFusionKit.git", "1.5.0")
+    .Package(url: "https://github.com/chrisdhaan/CDYelpFusionKit.git", "1.5.1")
+]
+```
+
+#### Swift 4
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/chrisdhaan/CDYelpFusionKit.git", "1.5.1")
 ]
 ```
 
@@ -547,9 +557,9 @@ public func searchEvents(byLocale locale: CDYelpLocale?,           // Optional
                          limit: Int?,                              // Optional - Default = 3, Max = 50
                          sortBy: CDYelpEventSortByType?,           // Optional - Default = .descending
                          sortOn: CDYelpEventSortOnType?,           // Optional - Default = .popularity
-                         categories: [CDYelpEventCategoryFilter]?, // Optional
                          startDate: Date?,                         // Optional
                          endDate: Date?,                           // Optional
+                         categories: [CDYelpEventCategoryFilter]?, // Optional
                          isFree: Bool?,                            // Optional - Default = false
                          location: String?,                        // Optional
                          latitude: Double?,                        // Optional
@@ -601,9 +611,9 @@ yelpAPIClient.searchEvents(byLocale: nil,
                            limit: 5,
                            sortBy: .descending,
                            sortOn: .popularity,
-                           categories: [.music, .foodAndDrink],
                            startDate: nil,
                            endDate: nil,
+                           categories: [.music, .foodAndDrink],
                            isFree: false,
                            location: nil,
                            latitude: 37.786572,

@@ -29,16 +29,18 @@ import ObjectMapper
 
 @objc @objcMembers public class CDYelpReview: NSObject, Mappable {
 
+    public var id: String?
     public var text: String?
     public var url: URL?
     public var rating: Int = 0
     public var timeCreated: String?
     public var user: CDYelpUser?
-    
+
     public required init?(map: Map) {
     }
-    
+
     public func mapping(map: Map) {
+        id          <- map["id"]
         text        <- map["text"]
         url         <- (map["url"], URLTransform())
         rating      <- map["rating"]

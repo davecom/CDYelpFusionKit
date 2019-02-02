@@ -33,10 +33,10 @@ import ObjectMapper
     public var end: String?
     public var day: Int?
     public var start: String?
-    
+
     public required init?(map: Map) {
     }
-    
+
     public func mapping(map: Map) {
         isOvernight <- map["is_overnight"]
         end         <- map["end"]

@@ -1,8 +1,8 @@
 //
-//  CDYelpHours.swift
+//  Package@swift-3.swift
 //  CDYelpFusionKit
 //
-//  Created by Christopher de Haan on 5/7/17.
+//  Created by Christopher de Haan on 12/14/18.
 //
 //  Copyright © 2016-2018 Christopher de Haan <contact@christopherdehaan.me>
 //
@@ -25,20 +25,12 @@
 //  THE SOFTWARE.
 //
 
-import ObjectMapper
+import PackageDescription
 
-@objc @objcMembers public class CDYelpHour: NSObject, Mappable {
-
-    public var hoursType: String?
-    public var open: [CDYelpOpen]?
-    public var isOpenNow: Bool?
-
-    public required init?(map: Map) {
-    }
-
-    public func mapping(map: Map) {
-        hoursType   <- map["hours_type"]
-        open        <- map["open"]
-        isOpenNow   <- map["is_open_now"]
-    }
-}
+let package = Package(
+    name: "CDYelpFusionKit",
+    dependencies: [
+        .Package(url: "https://github.com/tristanhimmelman/AlamofireObjectMapper.git", "5.2.0")
+    ],
+    exclude: []
+)

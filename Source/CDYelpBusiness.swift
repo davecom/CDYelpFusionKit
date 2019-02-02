@@ -28,7 +28,6 @@
 import ObjectMapper
 
 @objc @objcMembers public class CDYelpBusiness: NSObject, Mappable {
-    
     public var id: String?
     public var name: String?
     public var imageUrl: URL?
@@ -123,7 +122,7 @@ import ObjectMapper
     
     public required init?(map: Map) {
     }
-    
+
     public func mapping(map: Map) {
         id              <- map["id"]
         name            <- map["name"]
